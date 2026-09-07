@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SMC आसान भाषा में — राहुल ओराओं</title>
+<style>
+  :root{
+    --bg:#0b1220; --card:#131c2e; --line:#243149;
+    --gold:#fbbf24; --blue:#93c5fd; --green:#22c55e; --red:#ef4444;
+    --text:#e8edf5; --muted:#9aa8bd;
+  }
+  *{box-sizing:border-box}
+  body{
+    margin:0; background:var(--bg); color:var(--text);
+    font-family:"Noto Sans Devanagari",system-ui,-apple-system,"Segoe UI",sans-serif;
+    line-height:1.85; font-size:17px;
+  }
+  header{
+    text-align:center; padding:46px 20px 34px;
+    background:linear-gradient(160deg,#16233c,#0b1220);
+    border-bottom:1px solid var(--line);
+  }
+  header .tag{color:var(--blue); font-size:15px; letter-spacing:.5px}
+  header h1{font-size:38px; color:var(--gold); margin:8px 0 6px; line-height:1.3}
+  header p{color:var(--muted); margin:0; font-size:16px}
+  .wrap{max-width:860px; margin:0 auto; padding:26px 18px 70px}
+
+  .card{
+    background:var(--card); border:1px solid var(--line);
+    border-radius:16px; padding:24px; margin:26px 0;
+  }
+  .card h2{
+    color:var(--gold); font-size:25px; margin:0 0 4px; line-height:1.4;
+  }
+  .card .sub{color:var(--blue); font-size:15px; margin:0 0 16px}
+
+  .num{
+    display:inline-flex; align-items:center; justify-content:center;
+    width:36px; height:36px; border-radius:50%;
+    background:var(--gold); color:#111; font-weight:700; font-size:18px;
+    margin-left:10px; float:left; margin-top:2px;
+  }
+  .hd{overflow:hidden; margin-bottom:12px}
+  .hd .txt{margin-right:52px}
+
+  img{
+    width:100%; border-radius:12px; display:block;
+    margin:18px 0 8px; background:#fff; border:1px solid var(--line);
+  }
+  .cap{text-align:center; color:var(--muted); font-size:14px; margin:0 0 6px}
+
+  .box{border-radius:12px; padding:14px 18px; margin:16px 0; font-size:16px}
+  .story{background:#1a2438; border-right:4px solid var(--blue)}
+  .good{background:#0f2a1c; border-right:4px solid var(--green)}
+  .bad{background:#2c1618; border-right:4px solid var(--red)}
+  .key{background:#2e2408; border-right:4px solid var(--gold); font-size:18px; font-weight:600}
+
+  ol,ul{padding-right:22px; padding-left:0}
+  li{margin:8px 0}
+
+  table{width:100%; border-collapse:collapse; margin:16px 0; font-size:15px}
+  th,td{border:1px solid var(--line); padding:11px 12px; text-align:right}
+  th{background:#1b2740; color:var(--gold)}
+
+  .foot{
+    text-align:center; color:var(--muted); font-size:14px;
+    border-top:1px solid var(--line); padding-top:26px; margin-top:40px;
+  }
+  a{color:var(--blue)}
+  @media(max-width:600px){
+    body{font-size:16px}
+    header h1{font-size:29px}
+    .card{padding:18px}
+    .card h2{font-size:21px}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="tag">बिल्कुल शुरू से, आसान भाषा में</div>
+  <h1>SMC क्या है?</h1>
+  <p>स्मार्ट मनी कॉन्सेप्ट — तस्वीरों के साथ</p>
+</header>
+
+<div class="wrap">
+
+  <div class="box key">
+    पूरी SMC एक लाइन में — <br>
+    “बाज़ार वहाँ जाता है जहाँ लोगों के <b>स्टॉप लॉस</b> पड़े हैं। बड़े लोग पहले वो स्टॉप कटवाते हैं, सस्ते में माल उठाते हैं, फिर भाव को अपनी दिशा में ले जाते हैं।”
+  </div>
+
+  <!-- ========== 0 ========== -->
+  <div class="card">
+    <div class="hd"><span class="num">०</span><div class="txt">
+      <h2>पहले — कैंडल पढ़ना सीखिए</h2>
+      <p class="sub">ये न आया तो आगे कुछ नहीं समझेगा</p>
+    </div></div>
+
+    <p>हर कैंडल एक समय का हाल बताती है — जैसे 1 घंटे का, या 1 दिन का।</p>
+    <ul>
+      <li><b style="color:var(--green)">हरी कैंडल 🟩</b> — भाव ऊपर बंद हुआ (खरीदने वाले जीते)</li>
+      <li><b style="color:var(--red)">लाल कैंडल 🟥</b> — भाव नीचे बंद हुआ (बेचने वाले जीते)</li>
+      <li><b>मोटा हिस्सा</b> — जहाँ खुला और बंद हुआ</li>
+      <li><b>पतली लकीर (बाती)</b> — भाव वहाँ तक <i>गया था</i>, पर <i>टिक नहीं पाया</i></li>
+    </ul>
+
+    <div class="box key">
+      🔑 <b>बाती सबसे ज़्यादा ज़रूरी है।</b><br>
+      लंबी बाती का मतलब — भाव उधर गया, पर किसी ने उसे ज़ोर से वापस धकेल दिया।
+      यानी वहाँ कोई <b>ताक़तवर</b> बैठा है।
+    </div>
+  </div>
+
+  <!-- ========== 1 ========== -->
+  <div class="card">
+    <div class="hd"><span class="num">१</span><div class="txt">
+      <h2>लिक्विडिटी — “पैसा कहाँ पड़ा है”</h2>
+      <p class="sub">SMC की सबसे बुनियादी बात</p>
+    </div></div>
+
+    <p>मान लीजिए किसी शेयर का भाव नीचे जाकर <b>100</b> पर दो बार रुका और वापस ऊपर आ गया।</p>
+    <p>अब <b>सब लोग</b> ये देख रहे हैं। और सब एक ही बात सोच रहे हैं —</p>
+
+    <div class="box story">
+      “100 सपोर्ट है। यहाँ खरीदूँगा, और स्टॉप लॉस <b>99</b> पर लगाऊँगा।”
+    </div>
+
+    <p>नतीजा? हज़ारों लोगों का स्टॉप लॉस <b>99 के आसपास</b> जमा हो गया।</p>
+
+    <div class="box key">
+      अब सबसे ज़रूरी बात समझिए 👇<br><br>
+      आपका <b>“स्टॉप लॉस”</b> असल में एक <b>“बेचने का ऑर्डर”</b> है।<br><br>
+      तो 99 पर क्या पड़ा है? — <b>हज़ारों बेचने के ऑर्डर।</b>
+    </div>
+
+    <p><b>अब बड़े आदमी की सोच देखिए:</b></p>
+    <ol>
+      <li>उसे <b>10 लाख शेयर</b> खरीदने हैं</li>
+      <li>अगर सीधे खरीदे तो भाव भागकर 110 हो जाएगा — बहुत महँगा</li>
+      <li>उसे चाहिए — <b>बहुत सारे लोग जो एक साथ बेचें</b></li>
+      <li>और वो कहाँ हैं? 👉 <b>99 पर!</b> 🍯</li>
+    </ol>
+
+    <div class="box good">
+      <b>यही “लिक्विडिटी” है</b> — वो जगह जहाँ बहुत सारे ऑर्डर जमा हैं।<br>
+      बड़े सौदे बिना ऑर्डर के हो ही नहीं सकते। इसलिए भाव वहीं खिंचता है।
+    </div>
+  </div>
+
+  <!-- ========== 2 ========== -->
+  <div class="card">
+    <div class="hd"><span class="num">२</span><div class="txt">
+      <h2>झाड़ू — Liquidity Sweep 🧹</h2>
+      <p class="sub">SMC का सबसे काम का हिस्सा — यही सीख लीजिए</p>
+    </div></div>
+
+    <img src="charts/1_liquidity_sweep.png" alt="Liquidity Sweep">
+    <p class="cap">▲ लाल लकीर = सपोर्ट · लाल घेरा = लंबी बाती (यहाँ स्टॉप कटे) · हरा तीर = तुरंत वापसी</p>
+
+    <p><b>इस तस्वीर में क्या हुआ — कदम दर कदम:</b></p>
+    <ol>
+      <li>भाव नीचे गिरता हुआ आया और <b>लाल लकीर</b> पर रुक गया</li>
+      <li>सबने वहाँ खरीदा, और स्टॉप लॉस <b>थोड़ा नीचे</b> लगाया</li>
+      <li>🧹 फिर एक कैंडल आई जिसने <b>लाइन के नीचे लंबी बाती</b> मारी — <b>सबके स्टॉप कट गए</b></li>
+      <li>वो सारा बिका हुआ माल <b>बड़े आदमी ने सस्ते में उठा लिया</b></li>
+      <li>अब बेचने वाला कोई नहीं बचा → भाव <b>सरपट ऊपर</b> 🚀</li>
+    </ol>
+
+    <div class="box bad">
+      😤 और आम आदमी स्क्रीन देखकर चिल्लाता है —<br>
+      <i>“अरे यार! मेरा स्टॉप लगते ही भाव ऊपर चला गया! ये लोग मेरा ही स्टॉप देखते हैं क्या?”</i><br><br>
+      <b>हाँ भाई — कुछ हद तक देखते ही हैं।</b>
+    </div>
+
+    <div class="box key">
+      🔑 पहचान का नियम:<br>
+      <b>नीचे लंबी बाती + तुरंत वापसी = झाड़ू लग गई</b>
+    </div>
+  </div>
+
+  <!-- ========== 3 ========== -->
+  <div class="card">
+    <div class="hd"><span class="num">३</span><div class="txt">
+      <h2>ऑर्डर ब्लॉक — “बड़े का घर” 🏠</h2>
+      <p class="sub">जहाँ से धमाका हुआ था</p>
+    </div></div>
+
+    <img src="charts/2_order_block.png" alt="Order Block">
+    <p class="cap">▲ नीला डिब्बा = ऑर्डर ब्लॉक · भाव वापस आया और फिर उछल गया</p>
+
+    <p>चार्ट पर देखिए — पहले भाव सीधा-सपाट चल रहा था। फिर अचानक एक <b>बहुत बड़ी हरी कैंडल</b> ने ऊपर छलांग लगा दी। 🚀</p>
+
+    <p>अब सवाल — <b>वो छलांग अचानक क्यों आई?</b></p>
+
+    <div class="box story">
+      SMC कहता है — ठीक उससे <b>पहले वाली आख़िरी लाल कैंडल</b> पर बड़े आदमी ने चुपचाप माल उठाया था।
+      वही जगह <b>नीले डिब्बे</b> से दिखाई गई है।
+    </div>
+
+    <p><b>अब उम्मीद क्या है?</b> — भाव थोड़ा ऊपर जाकर वापस उसी डिब्बे में आया… और फिर से <b>ऊपर उछल गया</b> ✅</p>
+
+    <div class="box good">
+      आसान भाषा में — <b>“जहाँ से पिछली बार धमाका हुआ, वहाँ दोबारा हो सकता है।”</b><br>
+      ये असल में पुराने ज़माने का <b>सपोर्ट</b> ही है, बस नया नाम है।
+    </div>
+  </div>
+
+  <!-- ========== 4 ========== -->
+  <div class="card">
+    <div class="hd"><span class="num">४</span><div class="txt">
+      <h2>खाली जगह — FVG 🕳️</h2>
+      <p class="sub">जो सीढ़ी छूट गई, उसे छूना पड़ता है</p>
+    </div></div>
+
+    <img src="charts/3_fvg.png" alt="Fair Value Gap">
+    <p class="cap">▲ पीला हिस्सा = खाली जगह · भाव वापस आया, छुआ, और फिर ऊपर गया</p>
+
+    <p>देखिए — बीच में एक <b>बहुत बड़ी हरी कैंडल</b> है। भाव इतनी तेज़ी से भागा कि <b>बीच के हिस्से में कोई सौदा ही नहीं हुआ</b>।</p>
+
+    <p>वही खाली हिस्सा <b>पीले रंग</b> से दिखाया गया है।</p>
+
+    <div class="box story">
+      🪜 <b>याद रखने का तरीका:</b><br>
+      जैसे सीढ़ी चढ़ते वक़्त आपने जल्दबाज़ी में <b>एक सीढ़ी छोड़ दी</b> —
+      बाद में उतरकर उसे छूना ही पड़ता है।
+    </div>
+
+    <p>तस्वीर में देखिए — भाव ऊपर गया, फिर नीचे आया, <b>पीली जगह को छुआ</b>, और वहाँ से फिर ऊपर भाग गया ✅</p>
+  </div>
+
+  <!-- ========== 5 ========== -->
+  <div class="card">
+    <div class="hd"><span class="num">५</span><div class="txt">
+      <h2>BOS और CHoCH — ढाँचा</h2>
+      <p class="sub">बाज़ार का मिज़ाज पढ़ना</p>
+    </div></div>
+
+    <img src="charts/4_bos_choch.png" alt="BOS और CHoCH">
+    <p class="cap">▲ हरा तीर = BOS (तेज़ी जारी) · लाल तीर = CHoCH (खेल पलट रहा है)</p>
+
+    <p><b>बाईं तरफ़ देखिए</b> — भाव सीढ़ी की तरह ऊपर चढ़ रहा है। हर ऊँचाई पिछली से ऊँची।</p>
+
+    <p>🟢 <b>हरा तीर</b> — भाव ने <b>पिछली ऊँचाई तोड़ दी</b>। मतलब — <b>“तेज़ी अभी चालू है”</b>। इसे <b>BOS</b> कहते हैं।</p>
+
+    <p><b>अब दाईं तरफ़ देखिए</b> — भाव ऊपर चढ़कर थक गया, और नीचे आने लगा।</p>
+
+    <p>🔴 <b>लाल तीर</b> — भाव ने पहली बार <b>पिछली गहराई तोड़ दी</b>। मतलब — <b>“सावधान, खेल पलट रहा है”</b>। इसे <b>CHoCH</b> कहते हैं।</p>
+
+    <table>
+      <tr><th>नाम</th><th>क्या कहता है</th></tr>
+      <tr><td><b>BOS</b> 🟢</td><td>जो चल रहा था, वही चल रहा है</td></tr>
+      <tr><td><b>CHoCH</b> 🔴</td><td>कुछ बदल रहा है, सावधान</td></tr>
+    </table>
+  </div>
+
+  <!-- ========== 6 ========== -->
+  <div class="card">
+    <div class="hd"><span class="num">६</span><div class="txt">
+      <h2>महँगा / सस्ता — Premium & Discount ⚖️</h2>
+      <p class="sub">सबसे आसान बात</p>
+    </div></div>
+
+    <p>किसी भी ऊपर-नीचे की सीमा को <b>बीच से आधा</b> कर दीजिए।</p>
+    <table>
+      <tr><th>भाव कहाँ है</th><th>क्या करें</th></tr>
+      <tr><td>ऊपरी आधे में 🔴</td><td>महँगा है — खरीदना नहीं</td></tr>
+      <tr><td>निचले आधे में 🟢</td><td>सस्ता है — खरीदने लायक</td></tr>
+      <tr><td>ठीक बीच में ⚪</td><td>कुछ मत कीजिए, इंतज़ार</td></tr>
+    </table>
+
+    <div class="box story">
+      🛒 <b>दुकान की तरह सोचिए</b> — सेल में सामान लीजिए, त्योहार पर महँगे में मत लीजिए।
+    </div>
+  </div>
+
+  <!-- ========== 7 ========== -->
+  <div class="card">
+    <div class="hd"><span class="num">७</span><div class="txt">
+      <h2>अब ट्रेड कैसे करें?</h2>
+      <p class="sub">पूरा फ़र्क सिर्फ़ इतना है</p>
+    </div></div>
+
+    <div class="box bad">
+      <b>❌ जो 88% वाले करते हैं:</b><br><br>
+      भाव सपोर्ट पर आया → <b>तुरंत खरीद लिया</b> → स्टॉप ठीक नीचे लगाया → <b>कट गया</b> 😢
+      → और फिर भाव ऊपर चला गया, बिना उनके।
+    </div>
+
+    <div class="box good">
+      <b>✅ जो 12% वाले करते हैं:</b>
+      <ol>
+        <li>भाव सपोर्ट पर आया → <b>कुछ नहीं किया, इंतज़ार</b> ⏳</li>
+        <li>भाव नीचे टूटा, <b>लंबी बाती बनी</b>, वापस ऊपर आया → <b>अब ध्यान दिया</b> 👀</li>
+        <li>कैंडल <b>बंद</b> होने का इंतज़ार किया → <b>तब घुसे</b></li>
+        <li>स्टॉप लगाया <b>बाती के भी नीचे</b> — जहाँ भीड़ का नहीं था</li>
+        <li>निकलने की जगह <b>पहले से तय</b></li>
+      </ol>
+    </div>
+
+    <div class="box key">
+      🔑 पूरा राज़ एक लाइन में:<br><br>
+      <b>भीड़ पहले घुसती है।<br>
+      समझदार इंतज़ार करता है कि भीड़ कब कटे — फिर घुसता है।</b>
+    </div>
+  </div>
+
+  <!-- ========== 8 ========== -->
+  <div class="card">
+    <div class="hd"><span class="num">८</span><div class="txt">
+      <h2>अब सच भी सुन लीजिए ⚠️</h2>
+      <p class="sub">ये कोई नहीं बताता</p>
+    </div></div>
+
+    <p>ऊपर की सारी तस्वीरें <b>बनाई हुई</b> हैं — इसलिए एकदम सुंदर लग रही हैं। असली बाज़ार में:</p>
+
+    <ol>
+      <li><b>झाड़ू के बाद भाव वापस आए ही — ये ज़रूरी नहीं।</b> कई बार सच में नीचे ही चला जाता है।</li>
+      <li><b>लाइव में पता नहीं चलता</b> कि ये झाड़ू है या असली गिरावट। पता बाद में चलता है।</li>
+      <li><b>पुराने चार्ट पर सब आसान लगता है।</b> लाइव में हाथ काँपते हैं।</li>
+      <li><b>ये चीज़ें हर जगह दिख जाएँगी</b> — और यही जाल है। रोज़ 10 ट्रेड करेंगे, कमीशन में मर जाएँगे।</li>
+      <li><b>ये सब पुरानी बातें हैं, नए नाम में।</b> ऑर्डर ब्लॉक = सपोर्ट, झाड़ू = फ़ॉल्स ब्रेकआउट।</li>
+    </ol>
+
+    <div class="box bad">
+      🤔 <b>एक सोचने वाली बात:</b><br><br>
+      SMC पिछले 5 साल से भारत में सबसे ज़्यादा पढ़ाया जाने वाला तरीका है। लाखों लोग सीख चुके हैं।<br><br>
+      फिर भी सेबी कहता है — <b>88% लोग आज भी डूब रहे हैं।</b><br><br>
+      और मज़े की बात — SMC कहता है <i>“बड़े लोग भीड़ के स्टॉप काटते हैं”</i>।
+      अब <b>SMC वाले ही भीड़ हैं।</b> तो अब किसके स्टॉप कटेंगे? 😄
+    </div>
+  </div>
+
+  <!-- ========== 9 ========== -->
+  <div class="card">
+    <div class="hd"><span class="num">९</span><div class="txt">
+      <h2>अगर सिर्फ़ एक बात लेनी हो</h2>
+      <p class="sub">तो ये लीजिए</p>
+    </div></div>
+
+    <div class="box key" style="font-size:20px; text-align:center">
+      अपना स्टॉप लॉस वहाँ मत लगाइए<br>जहाँ सबका लगा है।<br><br>
+      थोड़ा नीचे लगाइए — <b>बाती के भी नीचे।</b>
+    </div>
+
+    <p>बस यही एक बात आपके बहुत सारे सौदे बचा लेगी। बाकी सारे नाम — ऑर्डर ब्लॉक, FVG, CHoCH — ये सब <b>बाद की बातें</b> हैं।</p>
+
+    <div class="box good">
+      📝 <b>आपका होमवर्क — अगले 10 दिन</b><br><br>
+      TradingView पर NIFTY का <b>Daily</b> चार्ट खोलिए। सारे इंडिकेटर हटा दीजिए।<br><br>
+      अब सिर्फ़ <b>एक चीज़</b> ढूँढिए —<br>
+      <b>“कहाँ-कहाँ नीचे लंबी बाती बनी और भाव तुरंत वापस आ गया?”</b><br><br>
+      कागज़ पर लिखिए। <b>कोई ट्रेड मत कीजिए।</b> बस देखिए।<br><br>
+      10 दिन बाद ये चीज़ आपको अपने आप दिखने लगेगी — और तब आप SMC का 60% हिस्सा समझ चुके होंगे।
+    </div>
+  </div>
+
+  <div class="box key" style="text-align:center">
+    🙏 आख़िरी बात<br><br>
+    <b>तरीका 20% है। बाकी 80% आप हैं।</b><br><br>
+    साधारण सपोर्ट-रेजिस्टेंस जानने वाला आदमी जो 1% जोखिम लेता है और डायरी लिखता है —
+    वो उससे कहीं ज़्यादा कमाएगा जो पूरा SMC रट चुका है पर आधा खाता एक सौदे में लगा देता है।
+  </div>
+
+  <div class="foot">
+    ⚠️ ये पन्ना सिर्फ़ <b>सीखने</b> के लिए है। ये निवेश की सलाह नहीं है।<br>
+    बाज़ार में जोखिम है — अपना पैसा खुद सोच-समझकर लगाइए।<br><br>
+    <a href="index.html">← मुख्य पन्ने पर वापस</a>
+  </div>
+
+</div>
+</body>
+</html>
