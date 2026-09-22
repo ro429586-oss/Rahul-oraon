@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rahul Oraon | Crypto Trader & Market Analyst</title>
+<meta name="description" content="Rahul Oraon — Professional Crypto Trader & Market Analyst. Technical analysis, price action and risk-first trading.">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0a0e17; --card:#101623; --card2:#141c2e; --line:#1e2a3f;
+  --green:#00d09c; --red:#ff4d5e; --text:#e8eef7; --muted:#8b99b0;
+  --gold:#f5b942;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Poppins',sans-serif;background:var(--bg);color:var(--text);overflow-x:hidden}
+::selection{background:var(--green);color:#04120d}
+
+/* ---------- NAVBAR ---------- */
+nav{position:fixed;top:0;width:100%;z-index:100;padding:18px 6%;
+  display:flex;justify-content:space-between;align-items:center;
+  background:rgba(10,14,23,.75);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.logo{font-weight:800;font-size:1.3rem;color:var(--green);letter-spacing:1px}
+.logo span{color:var(--text)}
+nav ul{display:flex;gap:28px;list-style:none;align-items:center}
+nav a{color:var(--muted);text-decoration:none;font-size:.9rem;font-weight:500;transition:.3s}
+nav a:hover{color:var(--green)}
+.btn{display:inline-block;padding:12px 28px;border-radius:10px;font-weight:600;
+  text-decoration:none;transition:.3s;border:1px solid transparent;cursor:pointer;font-family:'Poppins'}
+.btn-green{background:var(--green);color:#04120d}
+.btn-green:hover{box-shadow:0 0 30px rgba(0,208,156,.45);transform:translateY(-2px)}
+.btn-outline{border-color:var(--line);color:var(--text)}
+.btn-outline:hover{border-color:var(--green);color:var(--green)}
+#menuBtn{display:none;background:none;border:none;color:var(--text);font-size:1.6rem;cursor:pointer}
+
+/* ---------- TICKER ---------- */
+.ticker{position:fixed;top:64px;width:100%;overflow:hidden;background:#0d1320;
+  border-bottom:1px solid var(--line);z-index:99;padding:6px 0}
+.ticker-track{display:flex;gap:48px;white-space:nowrap;animation:scroll 30s linear infinite;
+  font-family:'JetBrains Mono',monospace;font-size:.78rem}
+@keyframes scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.up{color:var(--green)} .down{color:var(--red)}
+
+/* ---------- HERO ---------- */
+header{min-height:100vh;display:flex;align-items:center;justify-content:space-between;
+  padding:150px 6% 60px;gap:40px;position:relative}
+.hero-text{max-width:600px}
+.pill{display:inline-block;background:rgba(0,208,156,.12);color:var(--green);
+  border:1px solid rgba(0,208,156,.35);padding:6px 16px;border-radius:50px;
+  font-size:.8rem;font-weight:600;margin-bottom:20px}
+h1{font-size:3.4rem;font-weight:800;line-height:1.15;margin-bottom:14px}
+h1 span{color:var(--green)}
+.typing{font-size:1.25rem;color:var(--muted);min-height:34px;margin-bottom:22px}
+.typing b{color:var(--gold);font-weight:600}
+.hero-text p{color:var(--muted);line-height:1.8;margin-bottom:32px;font-size:.95rem}
+.cta{display:flex;gap:16px;flex-wrap:wrap}
+.hero-photo{position:relative;flex-shrink:0}
+.photo-ring{width:340px;height:340px;border-radius:50%;position:relative;
+  background:conic-gradient(var(--green),#0a8f6e,var(--gold),var(--green));
+  padding:5px;animation:spin 8s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.photo-inner{width:100%;height:100%;border-radius:50%;overflow:hidden;background:var(--card);
+  animation:spin 8s linear infinite reverse}
+.photo-inner img{width:100%;height:100%;object-fit:cover}
+.badge{position:absolute;background:var(--card);border:1px solid var(--line);border-radius:12px;
+  padding:10px 16px;font-size:.78rem;font-weight:600;display:flex;align-items:center;gap:8px;
+  animation:float 3s ease-in-out infinite}
+.badge .dot{width:8px;height:8px;border-radius:50%;background:var(--green);
+  box-shadow:0 0 10px var(--green)}
+.b1{top:30px;left:-60px}
+.b2{bottom:40px;right:-70px;animation-delay:1.5s}
+@keyframes float{50%{transform:translateY(-10px)}}
+.candles{position:absolute;bottom:0;left:0;width:100%;height:220px;opacity:.35;pointer-events:none}
+
+/* ---------- SECTIONS ---------- */
+section{padding:90px 6%;max-width:1200px;margin:0 auto}
+.sec-title{text-align:center;margin-bottom:60px}
+.sec-title h2{font-size:2.2rem;font-weight:700}
+.sec-title h2 span{color:var(--green)}
+.sec-title p{color:var(--muted);margin-top:8px;font-size:.9rem}
+
+/* ABOUT */
+.about-grid{display:grid;grid-template-columns:1.2fr 1fr;gap:50px;align-items:center}
+.about-text h3{font-size:1.5rem;margin-bottom:16px;color:var(--green)}
+.about-text p{color:var(--muted);line-height:1.9;margin-bottom:16px;font-size:.95rem}
+.about-text b{color:var(--text)}
+.info-card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:30px}
+.info-row{display:flex;justify-content:space-between;padding:12px 0;border-bottom:1px dashed var(--line);font-size:.9rem;gap:12px}
+.info-row:last-child{border:none}
+.info-row span:first-child{color:var(--muted)}
+.info-row span:last-child{color:var(--green);font-weight:600;text-align:right}
+
+/* STATS */
+.stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
+.stat-card{background:var(--card);border:1px solid var(--line);border-radius:16px;
+  padding:34px 20px;text-align:center;transition:.3s}
+.stat-card:hover{border-color:var(--green);transform:translateY(-6px);
+  box-shadow:0 15px 40px rgba(0,0,0,.4)}
+.stat-num{font-size:2.4rem;font-weight:800;color:var(--green);font-family:'JetBrains Mono',monospace}
+.stat-label{color:var(--muted);font-size:.85rem;margin-top:6px}
+
+/* SKILLS */
+.skills-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px 60px}
+.skill{margin-bottom:8px}
+.skill-head{display:flex;justify-content:space-between;font-size:.9rem;margin-bottom:8px}
+.skill-head b{font-weight:600}
+.skill-head span{color:var(--green);font-family:'JetBrains Mono',monospace}
+.bar{height:8px;background:var(--line);border-radius:10px;overflow:hidden}
+.bar-fill{height:100%;border-radius:10px;width:0;
+  background:linear-gradient(90deg,var(--green),var(--gold));transition:width 1.4s ease}
+
+/* ACHIEVEMENTS */
+.ach-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.ach-card{background:var(--card);border:1px solid var(--line);border-radius:16px;
+  padding:30px;transition:.3s;position:relative;overflow:hidden}
+.ach-card:hover{transform:translateY(-6px);border-color:var(--gold)}
+.ach-card::before{content:'';position:absolute;top:0;left:0;width:100%;height:3px;
+  background:linear-gradient(90deg,var(--gold),transparent)}
+.ach-icon{font-size:2rem;margin-bottom:14px}
+.ach-card h4{margin-bottom:10px;font-size:1.05rem}
+.ach-card p{color:var(--muted);font-size:.85rem;line-height:1.7}
+
+/* CONTACT */
+.contact-grid{display:grid;grid-template-columns:1fr 1.2fr;gap:50px}
+.contact-item{display:flex;align-items:center;gap:16px;background:var(--card);
+  border:1px solid var(--line);border-radius:14px;padding:18px 22px;margin-bottom:16px;
+  text-decoration:none;color:var(--text);transition:.3s}
+.contact-item:hover{border-color:var(--green);transform:translateX(6px)}
+.contact-item .ic{font-size:1.4rem}
+.contact-item small{display:block;color:var(--muted)}
+.contact-item b{font-size:.95rem}
+form{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:34px}
+form input,form textarea{width:100%;background:var(--bg);border:1px solid var(--line);
+  border-radius:10px;padding:14px 16px;color:var(--text);font-family:'Poppins';
+  font-size:.9rem;margin-bottom:16px;outline:none;transition:.3s;resize:vertical}
+form input:focus,form textarea:focus{border-color:var(--green)}
+
+footer{border-top:1px solid var(--line);padding:26px 6%;text-align:center;
+  color:var(--muted);font-size:.82rem;line-height:1.8}
+
+/* reveal animation */
+.reveal{opacity:0;transform:translateY(40px);transition:.8s ease}
+.reveal.show{opacity:1;transform:translateY(0)}
+
+/* ---------- RESPONSIVE ---------- */
+@media(max-width:920px){
+  nav ul{display:none;position:absolute;top:70px;right:6%;background:var(--card);
+    border:1px solid var(--line);border-radius:14px;padding:24px;flex-direction:column;gap:18px}
+  nav ul.open{display:flex}
+  #menuBtn{display:block}
+  header{flex-direction:column-reverse;text-align:center;padding-top:140px}
+  h1{font-size:2.4rem}
+  .cta{justify-content:center}
+  .about-grid,.skills-grid,.contact-grid{grid-template-columns:1fr}
+  .stats-grid{grid-template-columns:repeat(2,1fr)}
+  .ach-grid{grid-template-columns:1fr}
+  .b1{left:-10px}.b2{right:-10px}
+  .photo-ring{width:260px;height:260px}
+}
+</style>
+</head>
+<body>
+
+<!-- ================= NAVBAR ================= -->
+<nav>
+  <div class="logo">RAHUL<span>.ORAON</span></div>
+  <ul id="navMenu">
+    <li><a href="#home">Home</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#stats">Stats</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#achievements">Achievements</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <button id="menuBtn" onclick="document.getElementById('navMenu').classList.toggle('open')">☰</button>
+</nav>
+
+<!-- ================= PRICE TICKER ================= -->
+<div class="ticker"><div class="ticker-track" id="ticker"></div></div>
+
+<!-- ================= HERO ================= -->
+<header id="home">
+  <div class="hero-text">
+    <span class="pill">🟢 Live Market Mindset • Since 2019</span>
+    <h1>Hi, I'm <span>Rahul Oraon</span></h1>
+    <div class="typing">I am a <b id="typeText"></b></div>
+    <p>Crypto trader specializing in technical analysis, price action and risk-first
+    trading. I turn volatile markets into calculated opportunities — with discipline,
+    data and strict risk management.</p>
+    <div class="cta">
+      <a href="#contact" class="btn btn-green">Let's Connect 🤝</a>
+      <a href="#stats" class="btn btn-outline">View My Stats 📊</a>
+    </div>
+  </div>
+
+  <div class="hero-photo">
+    <div class="photo-ring">
+      <div class="photo-inner">
+        <img src="assets/profile.jpg" alt="Rahul Oraon — Crypto Trader">
+      </div>
+    </div>
+    <div class="badge b1"><span class="dot"></span> Markets Analysed Daily</div>
+    <div class="badge b2"><span class="dot"></span> Risk Management First</div>
+  </div>
+
+  <svg class="candles" viewBox="0 0 1200 220" preserveAspectRatio="none">
+    <g stroke-width="3">
+      <line x1="60" y1="80" x2="60" y2="180" stroke="#ff4d5e"/><rect x="50" y="110" width="20" height="45" fill="#ff4d5e"/>
+      <line x1="140" y1="40" x2="140" y2="150" stroke="#00d09c"/><rect x="130" y="70" width="20" height="55" fill="#00d09c"/>
+      <line x1="220" y1="60" x2="220" y2="190" stroke="#ff4d5e"/><rect x="210" y="100" width="20" height="60" fill="#ff4d5e"/>
+      <line x1="300" y1="20" x2="300" y2="130" stroke="#00d09c"/><rect x="290" y="50" width="20" height="50" fill="#00d09c"/>
+      <line x1="380" y1="50" x2="380" y2="170" stroke="#00d09c"/><rect x="370" y="90" width="20" height="55" fill="#00d09c"/>
+      <line x1="460" y1="30" x2="460" y2="140" stroke="#ff4d5e"/><rect x="450" y="60" width="20" height="45" fill="#ff4d5e"/>
+      <line x1="540" y1="70" x2="540" y2="200" stroke="#00d09c"/><rect x="530" y="110" width="20" height="60" fill="#00d09c"/>
+      <line x1="620" y1="10" x2="620" y2="120" stroke="#00d09c"/><rect x="610" y="40" width="20" height="50" fill="#00d09c"/>
+      <line x1="700" y1="45" x2="700" y2="165" stroke="#ff4d5e"/><rect x="690" y="85" width="20" height="50" fill="#ff4d5e"/>
+      <line x1="780" y1="25" x2="780" y2="150" stroke="#00d09c"/><rect x="770" y="55" width="20" height="60" fill="#00d09c"/>
+      <line x1="860" y1="60" x2="860" y2="185" stroke="#00d09c"/><rect x="850" y="100" width="20" height="55" fill="#00d09c"/>
+      <line x1="940" y1="35" x2="940" y2="155" stroke="#ff4d5e"/><rect x="930" y="65" width="20" height="55" fill="#ff4d5e"/>
+      <line x1="1020" y1="15" x2="1020" y2="125" stroke="#00d09c"/><rect x="1010" y="45" width="20" height="48" fill="#00d09c"/>
+      <line x1="1100" y1="55" x2="1100" y2="175" stroke="#00d09c"/><rect x="1090" y="95" width="20" height="50" fill="#00d09c"/>
+    </g>
+  </svg>
+</header>
+
+<!-- ================= ABOUT ================= -->
+<section id="about">
+  <div class="sec-title reveal"><h2>About <span>Me</span></h2><p>Trader by passion, analyst by discipline</p></div>
+  <div class="about-grid">
+    <div class="about-text reveal">
+      <h3>"Market ko predict nahi karte — manage karte hain."</h3>
+      <p>Main <b>Rahul Oraon</b> hoon, ek full-time crypto trader aur market analyst.
+      2019 se main Bitcoin, altcoins aur DeFi markets mein price action, chart patterns
+      aur market psychology ke through trade kar raha hoon.</p>
+      <p>Mera approach simple hai — <b style="color:var(--green)">capital protection first,
+      profits second.</b> Har trade pe stop-loss, har setup pe risk-reward calculation,
+      aur har week pe performance review. Emotion nahi, sirf data.</p>
+      <p>Maine apni strategies TradingView Pine Script aur backtesting tools se develop
+      ki hain, aur ab main beginners ko bhi disciplined trading sikhata hoon.</p>
+    </div>
+    <div class="info-card reveal">
+      <div class="info-row"><span>Name</span><span>Rahul Oraon</span></div>
+      <div class="info-row"><span>Role</span><span>Crypto Trader & Analyst</span></div>
+      <div class="info-row"><span>Experience</span><span>5+ Years</span></div>
+      <div class="info-row"><span>Markets</span><span>Crypto • BTC • Altcoins • DeFi</span></div>
+      <div class="info-row"><span>Location</span><span>Jharkhand, India 🇮🇳</span></div>
+      <div class="info-row"><span>Status</span><span>🟢 Open to Collaborate</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= STATS ================= -->
+<section id="stats">
+  <div class="sec-title reveal"><h2>Trading <span>Stats</span></h2><p>Numbers speak louder than opinions</p></div>
+  <div class="stats-grid">
+    <div class="stat-card reveal"><div class="stat-num" data-target="5">0</div><div class="stat-label">Years Experience</div></div>
+    <div class="stat-card reveal"><div class="stat-num" data-target="68" data-suffix="%">0</div><div class="stat-label">Win Rate</div></div>
+    <div class="stat-card reveal"><div class="stat-num" data-target="2400" data-suffix="+">0</div><div class="stat-label">Trades Executed</div></div>
+    <div class="stat-card reveal"><div class="stat-num" data-target="185" data-prefix="+" data-suffix="%">0</div><div class="stat-label">Portfolio Growth</div></div>
+  </div>
+</section>
+
+<!-- ================= SKILLS ================= -->
+<section id="skills">
+  <div class="sec-title reveal"><h2>My <span>Skills</span></h2><p>Tools of the trade</p></div>
+  <div class="skills-grid">
+    <div class="skill reveal"><div class="skill-head"><b>📈 Technical Analysis</b><span>95%</span></div><div class="bar"><div class="bar-fill" data-w="95"></div></div></div>
+    <div class="skill reveal"><div class="skill-head"><b>🛡️ Risk Management</b><span>92%</span></div><div class="bar"><div class="bar-fill" data-w="92"></div></div></div>
+    <div class="skill reveal"><div class="skill-head"><b>📊 Price Action & Patterns</b><span>90%</span></div><div class="bar"><div class="bar-fill" data-w="90"></div></div></div>
+    <div class="skill reveal"><div class="skill-head"><b>🪙 DeFi & On-Chain Analysis</b><span>85%</span></div><div class="bar"><div class="bar-fill" data-w="85"></div></div></div>
+    <div class="skill reveal"><div class="skill-head"><b>🧠 Trading Psychology</b><span>88%</span></div><div class="bar"><div class="bar-fill" data-w="88"></div></div></div>
+    <div class="skill reveal"><div class="skill-head"><b>⚙️ Pine Script / Backtesting</b><span>80%</span></div><div class="bar"><div class="bar-fill" data-w="80"></div></div></div>
+  </div>
+</section>
+
+<!-- ================= ACHIEVEMENTS ================= -->
+<section id="achievements">
+  <div class="sec-title reveal"><h2>Achieve<span>ments</span></h2><p>Milestones on the journey</p></div>
+  <div class="ach-grid">
+    <div class="ach-card reveal"><div class="ach-icon">🏆</div><h4>Consistency Award</h4><p>12 consecutive profitable months with disciplined risk-first strategy and strict position sizing.</p></div>
+    <div class="ach-card reveal"><div class="ach-icon">📚</div><h4>100+ Students Mentored</h4><p>Beginners ko safe aur systematic trading sikhaya — zero se structured trading journey.</p></div>
+    <div class="ach-card reveal"><div class="ach-icon">⚡</div><h4>Survived Bear & Bull Cycles</h4><p>2021 bull run se 2022 crash tak — har market cycle mein capital protect karke bounce back.</p></div>
+  </div>
+</section>
+
+<!-- ================= CONTACT ================= -->
+<section id="contact">
+  <div class="sec-title reveal"><h2>Get in <span>Touch</span></h2><p>Collaboration, mentorship ya just market talk</p></div>
+  <div class="contact-grid">
+    <div class="reveal">
+      <!-- ✏️ YAHAN apna WhatsApp number daalo (91 ke baad, without +) -->
+      <a class="contact-item" href="https://wa.me/91XXXXXXXXXX" target="_blank">
+        <span class="ic">💬</span><div><small>WhatsApp</small><b>Message me directly</b></div></a>
+      <!-- ✏️ YAHAN apna email daalo -->
+      <a class="contact-item" href="mailto:rahul.oraon@example.com">
+        <span class="ic">📧</span><div><small>Email</small><b>rahul.oraon@example.com</b></div></a>
+      <a class="contact-item" href="https://twitter.com/" target="_blank">
+        <span class="ic">🐦</span><div><small>Twitter / X</small><b>Market updates & analysis</b></div></a>
+      <a class="contact-item" href="https://t.me/" target="_blank">
+        <span class="ic">✈️</span><div><small>Telegram</small><b>Free trading signals channel</b></div></a>
+    </div>
+    <form class="reveal" onsubmit="sendMail(event)">
+      <input type="text" id="fName" placeholder="Your Name" required>
+      <input type="email" id="fEmail" placeholder="Your Email" required>
+      <textarea id="fMsg" rows="5" placeholder="Your Message..." required></textarea>
+      <button type="submit" class="btn btn-green" style="width:100%">Send Message 🚀</button>
+    </form>
+  </div>
+</section>
+
+<footer>© 2026 Rahul Oraon • Crypto Trader & Market Analyst • India<br>
+⚠️ Trading involves risk. Educational purposes only — not financial advice.</footer>
+
+<script>
+/* ---- Typing effect ---- */
+const roles=['Crypto Trader 💰','Market Analyst 📊','Risk Manager 🛡️','DeFi Enthusiast ⚡'];
+let ri=0,ci=0,del=false;
+(function type(){
+  const t=document.getElementById('typeText'),w=roles[ri];
+  t.textContent=del?w.substring(0,ci--):w.substring(0,ci++);
+  if(!del&&ci>w.length+8){del=true}
+  if(del&&ci<0){del=false;ri=(ri+1)%roles.length}
+  setTimeout(type,del?40:90);
+})();
+
+/* ---- Ticker ---- */
+const coins=[['BTC/USDT',97420,'▲'],['ETH/USDT',2715,'▲'],['SOL/USDT',198,'▼'],['BNB/USDT',682,'▲'],['XRP/USDT',2.35,'▼'],['DOGE/USDT',0.32,'▲']];
+document.getElementById('ticker').innerHTML=Array(2).fill(
+  coins.map(([n,p,d])=>`<span>${n} <b class="${d==='▲'?'up':'down'}">$${p.toLocaleString()} ${d} ${d==='▲'?'2.4%':'1.2%'}</b></span>`).join('')
+).join('');
+
+/* ---- Reveal on scroll ---- */
+const ro=new IntersectionObserver(es=>es.forEach(e=>{
+  if(e.isIntersecting){e.target.classList.add('show');ro.unobserve(e.target)}
+},{threshold:.15}));
+document.querySelectorAll('.reveal').forEach(el=>ro.observe(el));
+
+/* ---- Count-up stats ---- */
+document.querySelectorAll('.stat-num').forEach(el=>{
+  const o=new IntersectionObserver(es=>es.forEach(en=>{
+    if(!en.isIntersecting)return;
+    const t=+el.dataset.target,pre=el.dataset.prefix||'',suf=el.dataset.suffix||'';let n=0;
+    const iv=setInterval(()=>{n+=t/60;if(n>=t){n=t;clearInterval(iv)}el.textContent=pre+Math.floor(n).toLocaleString()+suf},25);
+    o.unobserve(el);
+  }),{threshold:.5});o.observe(el);
+});
+
+/* ---- Skill bars ---- */
+document.querySelectorAll('.bar-fill').forEach(b=>{
+  const o=new IntersectionObserver(es=>es.forEach(en=>{
+    if(en.isIntersecting){b.style.width=b.dataset.w+'%';o.unobserve(b)}
+  }),{threshold:.5});o.observe(b);
+});
+
+/* ---- Contact form → email app ---- */
+function sendMail(e){
+  e.preventDefault();
+  const n=document.getElementById('fName').value,m=document.getElementById('fMsg').value;
+  /* ✏️ YAHAN bhi apna email daalo */
+  location.href=`mailto:rahul.oraon@example.com?subject=Portfolio Contact from ${encodeURIComponent(n)}&body=${encodeURIComponent(m)}`;
+}
+</script>
+</body>
+</html>
